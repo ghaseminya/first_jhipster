@@ -1,0 +1,72 @@
+<div>
+    <h2 data-translate="myappApp.jobHistory.home.title">Job Histories</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="job-historymySuffix.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="myappApp.jobHistory.home.createLabel">
+                        Create new Job History
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="startDate"><span data-translate="myappApp.jobHistory.startDate">Start Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="endDate"><span data-translate="myappApp.jobHistory.endDate">End Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="language"><span data-translate="myappApp.jobHistory.language">Language</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="jobId"><span data-translate="myappApp.jobHistory.job">Job</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="departmentId"><span data-translate="myappApp.jobHistory.department">Department</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="employeeId"><span data-translate="myappApp.jobHistory.employee">Employee</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="jobHistory in vm.jobHistories track by jobHistory.id">
+                    <td><a ui-sref="job-historymySuffix-detail({id:jobHistory.id})">{{jobHistory.id}}</a></td>
+                    <td>{{jobHistory.startDate | date:'medium'}}</td>
+                    <td>{{jobHistory.endDate | date:'medium'}}</td>
+                    <td data-translate="{{'myappApp.Language.' + jobHistory.language}}">{{jobHistory.language}}</td>
+                    <td>
+                        <a ui-sref="jobmySuffix-detail({id:jobHistory.jobId})">{{jobHistory.jobId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="departmentmySuffix-detail({id:jobHistory.departmentId})">{{jobHistory.departmentId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="employeemySuffix-detail({id:jobHistory.employeeId})">{{jobHistory.employeeId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="job-historymySuffix-detail({id:jobHistory.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="job-historymySuffix.edit({id:jobHistory.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="job-historymySuffix.delete({id:jobHistory.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

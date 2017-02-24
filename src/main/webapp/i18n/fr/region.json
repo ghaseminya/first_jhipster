@@ -1,0 +1,22 @@
+{
+    "myappApp": {
+        "region" : {
+            "home": {
+                "title": "Regions",
+                "createLabel": "Créer un nouveau Region",
+                "createOrEditLabel": "Créer ou éditer un Region",
+                "search": "Recherche pour Region"
+            },
+            "created": "Un nouveau Region a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Region avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Region avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Region {{ id }} ?"
+            },
+            "detail": {
+                "title": "Region"
+            },
+            "regionName": "Region Name"
+        }
+    }
+}

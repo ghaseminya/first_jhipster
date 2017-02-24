@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="myappApp.jobHistory.detail.title">Job History</span> {{vm.jobHistory.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="myappApp.jobHistory.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{vm.jobHistory.startDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.jobHistory.endDate">End Date</span></dt>
+        <dd>
+            <span>{{vm.jobHistory.endDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.jobHistory.language">Language</span></dt>
+        <dd>
+            <span data-translate="{{'myappApp.Language.' + vm.jobHistory.language}}">{{vm.jobHistory.language}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.jobHistory.job">Job</span></dt>
+        <dd>
+            <a ui-sref="jobmySuffix-detail({id:vm.jobHistory.jobId})">{{vm.jobHistory.jobId}}</a>
+        </dd>
+        <dt><span data-translate="myappApp.jobHistory.department">Department</span></dt>
+        <dd>
+            <a ui-sref="departmentmySuffix-detail({id:vm.jobHistory.departmentId})">{{vm.jobHistory.departmentId}}</a>
+        </dd>
+        <dt><span data-translate="myappApp.jobHistory.employee">Employee</span></dt>
+        <dd>
+            <a ui-sref="employeemySuffix-detail({id:vm.jobHistory.employeeId})">{{vm.jobHistory.employeeId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="job-historymySuffix-detail.edit({id:vm.jobHistory.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,55 @@
+
+<div>
+    <h2><span data-translate="myappApp.employee.detail.title">Employee</span> {{vm.employee.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="myappApp.employee.firstName">First Name</span></dt>
+        <dd>
+            <span>{{vm.employee.firstName}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.employee.lastName">Last Name</span></dt>
+        <dd>
+            <span>{{vm.employee.lastName}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.employee.email">Email</span></dt>
+        <dd>
+            <span>{{vm.employee.email}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.employee.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{vm.employee.phoneNumber}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.employee.hireDate">Hire Date</span></dt>
+        <dd>
+            <span>{{vm.employee.hireDate | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.employee.salary">Salary</span></dt>
+        <dd>
+            <span>{{vm.employee.salary}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.employee.commissionPct">Commission Pct</span></dt>
+        <dd>
+            <span>{{vm.employee.commissionPct}}</span>
+        </dd>
+        <dt><span data-translate="myappApp.employee.department">Department</span></dt>
+        <dd>
+            <a ui-sref="departmentmySuffix-detail({id:vm.employee.departmentId})">{{vm.employee.departmentId}}</a>
+        </dd>
+        <dt><span data-translate="myappApp.employee.manager">Manager</span></dt>
+        <dd>
+            <a ui-sref="employeemySuffix-detail({id:vm.employee.managerId})">{{vm.employee.managerId}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="employeemySuffix-detail.edit({id:vm.employee.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
